@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import MenuProvider from '../../menuProvider';
 import Header from '../Header';
+import ItemList from '../ItemList';
 import '../../App.css';
 
 export default function AppContainer() {
@@ -32,64 +33,7 @@ export default function AppContainer() {
                     />
                 </label>
               </div>
-              <ul className="item-picker">
-                <li className="item">
-                  <h2>Dummy item</h2>
-                  <p>
-                    <span className="dietary">ve</span>
-                    <span className="dietary">v</span>
-                    <span className="dietary">n!</span>
-                  </p>
-                </li>
-                <li className="item">
-                  <h2>Dummy item</h2>
-                  <p>
-                    <span className="dietary">ve</span>
-                    <span className="dietary">v</span>
-                    <span className="dietary">n!</span>
-                  </p>
-                </li>
-                <li className="item">
-                  <h2>Dummy item</h2>
-                  <p>
-                    <span className="dietary">ve</span>
-                    <span className="dietary">v</span>
-                    <span className="dietary">n!</span>
-                  </p>
-                </li>
-                <li className="item">
-                  <h2>Dummy item</h2>
-                  <p>
-                    <span className="dietary">ve</span>
-                    <span className="dietary">v</span>
-                    <span className="dietary">n!</span>
-                  </p>
-                </li>
-                <li className="item">
-                  <h2>Dummy item</h2>
-                  <p>
-                    <span className="dietary">ve</span>
-                    <span className="dietary">v</span>
-                    <span className="dietary">n!</span>
-                  </p>
-                </li>
-                <li className="item">
-                  <h2>Dummy item</h2>
-                  <p>
-                    <span className="dietary">ve</span>
-                    <span className="dietary">v</span>
-                    <span className="dietary">n!</span>
-                  </p>
-                </li>
-                <li className="item">
-                  <h2>Dummy item</h2>
-                  <p>
-                    <span className="dietary">ve</span>
-                    <span className="dietary">v</span>
-                    <span className="dietary">n!</span>
-                  </p>
-                </li>
-              </ul>
+              <ItemList />
             </div>
             <div className="col-8">
               <h2>Menu preview</h2>
