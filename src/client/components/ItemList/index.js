@@ -14,7 +14,7 @@ export default function ItemList() {
     <ul className="item-picker">
       {result.items.map(item => {
         return (
-          <li key={item.id} className="item">
+          <li data-testid="item" key={item.id} className="item">
             <Item itemData={item} onClick={() => {}} removable={false} />
           </li>
         )

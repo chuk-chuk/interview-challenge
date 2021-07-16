@@ -19,7 +19,7 @@ describe('Header', () => {
     expect(screen.getByText('Loading ...')).toBeInTheDocument()
   })
 
-  it('renders 2 items', () => {
+  it('renders total number of items', () => {
     render(
       <MenuContext.Provider value={{ result: mockData, isLoading: false }}>
         <Header />
@@ -27,5 +27,15 @@ describe('Header', () => {
     )
 
     expect(screen.getByText('2 items')).toBeInTheDocument()
+  })
+
+  it('renders total number of each dietary', () => {
+    render(
+      <MenuContext.Provider value={{ result: mockData, isLoading: false }}>
+        <Header />
+      </MenuContext.Provider>
+    )
+
+    expect(screen.getByText('2x v')).toBeInTheDocument()
   })
 })

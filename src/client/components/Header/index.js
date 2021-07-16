@@ -22,7 +22,7 @@ export default function Header() {
         <span>{`${totalItems} items`}</span>
       </div>
       <div className="col-6 menu-summary-right">
-        {Object.entries(dietariesTotal).map((t,k) => <><span>{`${t[1]}x`}</span> <span className="dietary">{t[0]}</span></>)} 
+        {Object.entries(dietariesTotal).map((t,k) => <><span>{}</span> <span className="dietary">{`${t[1]}x`} {t[0]}</span></>)} 
       </div>
     </div>
   )

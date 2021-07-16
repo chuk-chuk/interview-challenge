@@ -19,6 +19,16 @@ describe('ItemList', () => {
     expect(screen.getByText('Loading ...')).toBeInTheDocument()
   })
 
+  it('shows a message when items array is empty', () => {
+    render(
+      <MenuContext.Provider value={{ result: { items: []}, isLoading: false }}>
+        <ItemList />
+      </MenuContext.Provider>
+    )
+
+    expect(screen.getByText('No items found')).toBeInTheDocument()
+  })
+
   it('renders 2 names of returned items', () => {
     render(
       <MenuContext.Provider value={{ result: mockData, isLoading: false }}>
