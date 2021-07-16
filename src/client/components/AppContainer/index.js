@@ -4,6 +4,7 @@ import Header from '../Header';
 import ItemList from '../ItemList';
 import MenuPreview from '../MenuPreview';
 import '../../App.css';
+import SelectedMenuProvider from '../../selectedItemsProvider';
 
 export default function AppContainer() {
   const [filterBy, setFilterBy] = useState("");
@@ -14,6 +15,7 @@ export default function AppContainer() {
 
   return (
     <MenuProvider query={filterBy}>
+      <SelectedMenuProvider>
       <div className="wrapper">
         <div className="menu-summary">
           <div className="container">
@@ -40,6 +42,7 @@ export default function AppContainer() {
           </div>
         </div>
       </div>
+      </SelectedMenuProvider>
     </MenuProvider>
   );
 }
