@@ -7,6 +7,23 @@ export default function ItemList() {
   const { result, isLoading } = useMenuApi();
 
   if (isLoading) return <p>Loading ...</p>
+
+  const handleOnClick = (item) => {
+    return () => fetch(`api/selectedItems`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ id: item.is, name: item.name, dietaries: item.dietaries })
+    })
+    .then(res => res.json())
+    .then((data) => {
+      console.log('Success:', data)
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    })
+  }
   
   return (
     <div>
@@ -15,7 +32,7 @@ export default function ItemList() {
       {result.items.map(item => {
         return (
           <li data-testid="item" key={item.id} className="item">
-            <Item itemData={item} onClick={() => {}} removable={false} />
+            <Item itemData={item} onClick={handleOnClick(item)} removable={false} />
           </li>
         )
       })}
