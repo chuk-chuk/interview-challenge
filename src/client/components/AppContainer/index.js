@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import MenuProvider from '../../menuProvider';
+import Header from '../Header';
 import '../../App.css';
 
 export default function AppContainer() {
@@ -14,16 +15,7 @@ export default function AppContainer() {
       <div className="wrapper">
         <div className="menu-summary">
           <div className="container">
-            <div className="row">
-              <div className="col-6 menu-summary-left">
-                <span>6 items</span>
-              </div>
-              <div className="col-6 menu-summary-right">
-                6x <span className="dietary">ve</span>
-                4x <span className="dietary">v</span>
-                12x <span className="dietary">n!</span>
-              </div>
-            </div>
+          <Header />
           </div>
         </div>
         <div className="container menu-builder">
