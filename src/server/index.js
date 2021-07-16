@@ -35,6 +35,7 @@ app.post('/api/selectedItems', (req, res) => {
 
 app.delete('/api/selectedItems/:id', (req, res) => {
   const { id } = req.params;
+  console.log(id)
   selectedList.filter(item => item.id !== id)
   res.send("Item removed!");
 });

@@ -7,7 +7,7 @@ export default function Header() {
 
   if (isLoading) return <p>Loading ...</p>
 
-  const totalItems = result.items.length
+  const totalItems = result.items.length > 1 ? <span>{`${totalItems} items`}</span> : <span>No items selected</span>
 
   const dietariesTotal = result && result.items.reduce((obj, el) => {
     el.dietaries.map(item => {
@@ -19,7 +19,7 @@ export default function Header() {
   return (
     <div className="row">
       <div className="col-6 menu-summary-left">
-        <span>{`${totalItems} items`}</span>
+        {totalItems}
       </div>
       <div className="col-6 menu-summary-right">
         {Object.entries(dietariesTotal).map((t,k) => <><span>{`${t[1]}x`}</span><span className="dietary">{t[0]}</span></>)} 
