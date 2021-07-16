@@ -1,50 +1,39 @@
-
 import React from 'react';
-import '../../App.css'
+import { useSelectedMenuApi } from "../../hooks/use-selected-menu-api";
+import Item from "../Item";
+import '../../App.css';
 
 export default function MenuPreview() {
+  const { result, isLoading } = useSelectedMenuApi()
+
+  if (isLoading) return <p>Loading ...</p>
+
+  const handleRemove = (id) => { 
+    fetch(`api/selectedItems/${id}`)
+    .then(res => res.json())
+    .then(() => {
+      console.log("item removed!")
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    })
+  }
+
   return (
     <div>
-      <h2>Menu preview</h2>
-        <ul className="menu-preview">
-          <li className="item">
-            <h2>Dummy item</h2>
-            <p>
-              <span className="dietary">ve</span>
-              <span className="dietary">v</span>
-              <span className="dietary">n!</span>
-            </p>
-            <button className="remove-item">x</button>
-          </li>
-          <li className="item">
-            <h2>Dummy item</h2>
-            <p>
-              <span className="dietary">ve</span>
-              <span className="dietary">v</span>
-              <span className="dietary">n!</span>
-            </p>
-            <button className="remove-item">x</button>
-          </li>
-          <li className="item">
-            <h2>Dummy item</h2>
-            <p>
-              <span className="dietary">ve</span>
-              <span className="dietary">v</span>
-              <span className="dietary">n!</span>
-            </p>
-            <button className="remove-item">x</button>
-          </li>
-          <li className="item">
-            <h2>Dummy item</h2>
-            <p>
-              <span className="dietary">ve</span>
-              <span className="dietary">v</span>
-              <span className="dietary">n!</span>
-            </p>
-            <button className="remove-item">x</button>
-          </li>
-        </ul>
+    <h2>Menu preview</h2>
+    {result && result.items.length ? (
+      <ul className="menu-preview">
+      {result.items.map((item, index) => (
+        <li key={index} className="item"> 
+          <Item itemData={item} onClick={handleRemove(item.id)} removable={true} />
+        </li>
+      ))}
+    </ul>
+    ) : (
+      <p>No items selected</p>
+    )}
     </div>
-  );
+  )
 }
               
