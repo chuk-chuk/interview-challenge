@@ -1,9 +1,9 @@
 import React from 'react';
-import { useMenuApi } from '../../hooks/use-menu-api';
+import { useSelectedMenuApi } from '../../hooks/use-selected-menu-api';
 import '../../App.css';
 
 export default function Header() {
-  const { result, isLoading } = useMenuApi();
+  const { result, isLoading } = useSelectedMenuApi()
 
   if (isLoading) return <p>Loading ...</p>
 
