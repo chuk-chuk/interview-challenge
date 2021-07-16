@@ -1,5 +1,5 @@
 import React from 'react';
-import { useMenuApi } from '../../menuProvider';
+import { useMenuApi } from '../../hooks/use-menu-api';
 import '../../App.css';
 
 export default function Header() {

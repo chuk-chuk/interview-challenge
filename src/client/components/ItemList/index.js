@@ -1,6 +1,6 @@
 import React from 'react';
 import Item from '../Item';
-import { useMenuApi } from '../../menuProvider';
+import { useMenuApi } from '../../hooks/use-menu-api';
 import '../../App.css';
 
 export default function ItemList() {
@@ -21,7 +21,7 @@ export default function ItemList() {
       })}
     </ul>
     ) : (
-      <p>No items available</p>
+      <p>No items found</p>
     )}
     </div>
   )

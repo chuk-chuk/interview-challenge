@@ -34,11 +34,3 @@ export function MenuProvider({
 
 export default MenuProvider
 
-export function useMenuApi() {
-  const context = useContext(MenuContext);
-  if (context === undefined) {
-    throw new Error("Context must be used within a Provider");
-  }
-  return context;
-}
-
