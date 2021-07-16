@@ -36,6 +36,7 @@ describe('Header', () => {
       </MenuContext.Provider>
     )
 
-    expect(screen.getByText('2x v')).toBeInTheDocument()
+    expect(screen.getByText('2x')).toBeInTheDocument()
+    expect(screen.getByText('v')).toBeInTheDocument()
   })
 })
