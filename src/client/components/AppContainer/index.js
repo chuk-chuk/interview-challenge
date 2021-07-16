@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MenuProvider from '../../menuProvider';
 import '../../App.css';
 
 export default function AppContainer() {
+  const [filterBy, setFilterBy] = useState("");
+
+  const handleOnChange = (event) => {
+    setFilterBy(event.target.value);
+  };
+
   return (
     <MenuProvider>
       <div className="wrapper">
@@ -24,7 +30,15 @@ export default function AppContainer() {
           <div className="row">
             <div className="col-4">
               <div className="filters">
-                <input className="form-control" placeholder="Name" />
+                <label htmlFor="filter">
+                  Filter by name...
+                    <input
+                      id="form-control"
+                      type="text"
+                      value={filterBy}
+                      onChange={handleOnChange}
+                    />
+                </label>
               </div>
               <ul className="item-picker">
                 <li className="item">
