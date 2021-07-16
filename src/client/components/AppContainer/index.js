@@ -13,7 +13,7 @@ export default function AppContainer() {
   };
 
   return (
-    <MenuProvider>
+    <MenuProvider query={filterBy}>
       <div className="wrapper">
         <div className="menu-summary">
           <div className="container">
@@ -24,15 +24,13 @@ export default function AppContainer() {
           <div className="row">
             <div className="col-4">
               <div className="filters">
-                <label htmlFor="filter">
-                  Filter by name...
-                    <input
-                      id="form-control"
-                      type="text"
-                      value={filterBy}
-                      onChange={handleOnChange}
-                    />
-                </label>
+                <input
+                  id="form-control"
+                  type="text"
+                  value={filterBy}
+                  placeholder="Type to filter ..."
+                  onChange={handleOnChange}
+                />
               </div>
               <ItemList />
             </div>
