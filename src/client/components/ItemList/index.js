@@ -3,7 +3,7 @@ import Item from '../Item';
 import { useMenuApi } from '../../hooks/use-menu-api';
 import '../../App.css';
 
-export default function ItemList() {
+export default function ItemList({ increaseVersion }) {
   const { result, isLoading } = useMenuApi();
 
   if (isLoading) return <p>Loading ...</p>
@@ -14,11 +14,12 @@ export default function ItemList() {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ id: item.is, name: item.name, dietaries: item.dietaries })
+      body: JSON.stringify({ id: item.id })
     })
     .then(res => res.json())
     .then((data) => {
       console.log('Success:', data)
+      increaseVersion()
     })
     .catch(error => {
       console.error('Error:', error);

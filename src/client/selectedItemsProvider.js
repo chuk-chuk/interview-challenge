@@ -3,6 +3,7 @@ import React, { createContext, useState, useEffect } from "react"
 export const SelectedMenuContext = createContext()
 
 export function SelectedMenuProvider({
+  version,
   children,
 }) {
   const [result, setResult] = useState([])
@@ -21,7 +22,7 @@ export function SelectedMenuProvider({
       .catch(error => {
         console.error('Error:', error);
       })
-  }, [])
+  }, [version])
 
   return (
     <SelectedMenuContext.Provider value={{ result, isLoading }}>

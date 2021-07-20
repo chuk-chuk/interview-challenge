@@ -23,21 +23,26 @@ app.get('/api/items', (req, res) => {
 });
 
 app.get('/api/selectedItems', (req, res) => {
-  const filteredList = selectedList.filter(item => !selectedList.includes(item.id))
+  const filteredList = selectedList.map(selected => {
+    return items.find(el => el.id === selected.id)
+  })
   res.send({ items: filteredList })
 });
 
 app.post('/api/selectedItems', (req, res) => {
   var itemToAdd = req.body;
-  selectedList.push(itemToAdd);
-  res.send("Item added to preview list!");
+  const ids = selectedList.map(item => item.id)
+
+  if (!ids.includes(itemToAdd.id)) {
+    selectedList.push(itemToAdd) // only ids
+  }
+  res.send({ message: "Item added to preview list!" });
 });
 
 app.delete('/api/selectedItems/:id', (req, res) => {
   const { id } = req.params;
-  console.log(id)
   selectedList.filter(item => item.id !== id)
-  res.send("Item removed!");
+  res.send({ message: "Item removed!" });
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}!`));

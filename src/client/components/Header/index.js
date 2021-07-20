@@ -7,7 +7,7 @@ export default function Header() {
 
   if (isLoading) return <p>Loading ...</p>
 
-  const totalItems = result.items.length > 1 ? <span>{`${totalItems} items`}</span> : <span>No items selected</span>
+  const totalItems = result?.items.length > 0 ? <span>{`${result.items.length} items`}</span> : <span>No items selected</span>
 
   const dietariesTotal = result && result.items.reduce((obj, el) => {
     el.dietaries.map(item => {

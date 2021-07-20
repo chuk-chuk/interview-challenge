@@ -8,14 +8,19 @@ import SelectedMenuProvider from '../../selectedItemsProvider';
 
 export default function AppContainer() {
   const [filterBy, setFilterBy] = useState("");
+  const [version, setVersion] = useState(0);
 
   const handleOnChange = (event) => {
     setFilterBy(event.target.value);
   };
 
+  const increasing = () => {
+    setVersion(prev => prev + 1)
+  }
+
   return (
     <MenuProvider query={filterBy}>
-      <SelectedMenuProvider>
+      <SelectedMenuProvider version={version}>
       <div className="wrapper">
         <div className="menu-summary">
           <div className="container">
@@ -34,7 +39,7 @@ export default function AppContainer() {
                   onChange={handleOnChange}
                 />
               </div>
-              <ItemList />
+              <ItemList increaseVersion={increasing} />
             </div>
             <div className="col-8">
             <MenuPreview />
