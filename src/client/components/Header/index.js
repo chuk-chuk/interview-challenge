@@ -14,7 +14,7 @@ export default function Header() {
       obj[item] = (obj[item] || 0) + 1;
     })
     return obj;
-  }, {});
+  }, { "v": 0, "ve": 0, "df": 0, "gf": 0, "n!": 0 });
 
   return (
     <div className="row">
